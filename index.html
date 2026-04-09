@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>포커스 1기 참여도 대시보드</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Pretendard',sans-serif;background:#f5f5f5;color:#111}
+.hd{background:#111;color:#fff;padding:2rem;text-align:center}
+.hd h1{font-size:1.5rem;font-weight:700;letter-spacing:-0.02em}
+.hd p{opacity:.6;margin-top:.3rem;font-size:.9rem}
+.cards{display:flex;gap:1rem;padding:1.5rem;max-width:800px;margin:0 auto}
+.cd{flex:1;background:#fff;border-radius:12px;padding:1.2rem;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.cd .n{font-size:1.8rem;font-weight:700}
+.cd .l{font-size:.8rem;color:#888;margin-top:.2rem}
+.sec{max-width:800px;margin:1.5rem auto;padding:0 1.5rem}
+.bx{background:#fff;border-radius:12px;padding:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.bx h2{font-size:1.1rem;margin-bottom:1rem}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;padding:.6rem;font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid #eee}
+td{padding:.6rem;border-bottom:1px solid #eee;font-size:.85rem}
+tr:hover{background:#fafafa}
+a.nl{color:#111;text-decoration:none;font-weight:500}
+a.nl:hover{text-decoration:underline}
+.ft{text-align:center;padding:2rem;font-size:.75rem;color:#bbb}
+.empty{text-align:center;padding:2rem;color:#bbb}
+.idea{border:1px solid #eee;border-radius:10px;padding:1rem;margin-bottom:.8rem}
+.idea .title{font-weight:700;font-size:.95rem}
+.idea .meta{font-size:.75rem;color:#888;margin-top:.3rem}
+.idea a{color:#111;text-decoration:none}
+.idea a:hover{text-decoration:underline}
+.fbtn{display:inline-block;padding:.4rem .8rem;font-size:.75rem;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;margin-right:.4rem;margin-bottom:.5rem}
+.fbtn.on{background:#111;color:#fff;border-color:#111}
+.loading{text-align:center;padding:3rem;color:#888}
+.profile{text-align:center;padding:2rem 1rem 1rem}
+.profile .rk{font-size:3rem}
+.profile .nm{font-size:1.4rem;font-weight:700;margin-top:.5rem}
+.profile .sb{color:#888;font-size:.8rem;margin-top:.3rem}
+.profile .uid{color:#bbb;font-size:.7rem;margin-top:.2rem;font-family:monospace}
+.back{display:inline-block;margin-top:.5rem;color:#fff;text-decoration:none;opacity:.6;font-size:.85rem}
+.back:hover{opacity:1;text-decoration:underline}
+</style>
+</head>
+<body>
+<div id="app"><div class="loading">데이터를 불러오는 중...</div></div>
+<script>
+const API = '/api/data';
+let DATA = null;
+
+async function load() {
+  try {
+    const r = await fetch(API);
+    DATA = await r.json();
+    if (location.hash && location.hash.startsWith('#member/')) {
+      showMember(location.hash.replace('#member/',''));
+    } else {
+      showDashboard();
+    }
+  } catch(e) {
+    document.getElementById('app').innerHTML = '<div class="loading">데이터를 불러올 수 없어요. 서버를 확인해주세요.</div>';
+  }
+}
+
+function medal(i) { return i===1?'🥇':i===2?'🥈':i===3?'🥉':i; }
+
+function showDashboard() {
+  const m = DATA.members;
+  const p = DATA.pct;
+  const ideas = DATA.ideas || [];
+
+  let rows = '';
+  m.forEach((u,i) => {
+    rows += '<tr><td style="text-align:center;font-size:1.1em">'+medal(i+1)+'</td><td><a class="nl" href="#member/'+u.uid+'" onclick="showMember(\''+u.uid+'\')">'+u.name+'</a></td><td style="text-align:center">'+u.score+'</td></tr>';
+  });
+
+  let ideasHtml = '';
+  if (ideas.length === 0) { ideasHtml = '<p class="empty">아직 아이디어가 없어요</p>'; }
+  else { ideas.forEach(id => { ideasHtml += '<div class="idea"><a href="'+id.url+'" target="_blank"><div class="title">'+id.title+'</div></a><div class="meta">'+id.author+' · '+id.date+'</div></div>'; }); }
+
+  let dcMembers = [];
+  m.forEach(u => {
+    const dc = u.channels['데일리-체크'] || {};
+    const msgs = dc.messages||0, reacts = dc.reactions||0;
+    if (msgs+reacts > 0) dcMembers.push({uid:u.uid, name:u.name, msgs, reacts, total:msgs+reacts});
+  });
+  dcMembers.sort((a,b) => b.total - a.total);
+
+  let dcRows = '';
+  dcMembers.forEach((d,i) => {
+    dcRows += '<tr><td style="text-align:center">'+(i+1)+'</td><td><a class="nl" href="#member/'+d.uid+'" onclick="showMember(\''+d.uid+'\')">'+d.name+'</a></td><td class="dc-msg" style="text-align:center">'+d.msgs+'</td><td class="dc-react" style="text-align:center">'+d.reacts+'</td><td style="text-align:center;font-weight:700">'+d.total+'</td></tr>';
+  });
+
+  document.getElementById('app').innerHTML = `
+<div class="hd"><h1>포커스 1기 참여도 대시보드</h1><p>운영진/서부커 제외 패널 참여도</p></div>
+<div class="cards"><div class="cd"><div class="n">${p.monthly}%</div><div class="l">월 참여도</div></div>
+<div class="cd"><div class="n">${p.weekly}%</div><div class="l">주 참여도</div></div>
+<div class="cd"><div class="n">${p.daily}%</div><div class="l">일 참여도</div></div></div>
+<div class="sec"><div class="bx"><h2>최근 아이디어 제안</h2>${ideasHtml}</div></div>
+<div class="sec"><div class="bx"><h2>전체 점수 순위</h2>${m.length===0?'<p class="empty">아직 데이터가 없어요</p>':'<table><tr><th style="text-align:center">순위</th><th>이름</th><th style="text-align:center">점수</th></tr>'+rows+'</table>'}</div></div>
+<div class="sec"><div class="bx"><h2>#데일리-체크 참여도</h2>
+<div style="margin-bottom:1rem">
+<span class="fbtn on" onclick="dcFilter('all',this)">전체</span>
+<span class="fbtn" onclick="dcFilter('msg',this)">댓글만</span>
+<span class="fbtn" onclick="dcFilter('react',this)">리액션만</span>
+</div>
+${dcMembers.length===0?'<p class="empty">아직 데이터가 없어요</p>':'<table><tr><th style="text-align:center">순위</th><th>이름</th><th class="dc-msg" style="text-align:center">댓글</th><th class="dc-react" style="text-align:center">리액션</th><th style="text-align:center">합계</th></tr>'+dcRows+'</table>'}</div></div>
+<div class="ft">이름 클릭 → 개인 상세 · 60초 자동 새로고침</div>`;
+}
+
+function showMember(uid) {
+  location.hash = 'member/' + uid;
+  const u = DATA.members.find(m => m.uid === uid);
+  if (!u) { showDashboard(); return; }
+
+  const rank = DATA.members.indexOf(u) + 1;
+  const total = DATA.members.length;
+  const avg = total > 0 ? Math.round(DATA.members.reduce((s,m)=>s+m.score,0)/total*10)/10 : 0;
+
+  const dc = u.channels['데일리-체크']||{};
+  const qc = u.channels['실무진-포커스-퀵챗']||{};
+  const idea = u.channels['아이디어-제안']||{};
+  const ds = Math.round((dc.reactions||0)*0.1*10)/10;
+  const qs = (qc.messages||0)*2 + (qc.votes||0)*1;
+  const ids = (idea.posts||0)*5;
+  const tmsg = (dc.messages||0)+(qc.messages||0);
+  const tpost = idea.posts||0;
+  const tvote = (dc.votes||0)+(qc.votes||0)+(idea.votes||0);
+  const treact = (dc.reactions||0)+(qc.reactions||0)+(idea.reactions||0);
+
+  document.getElementById('app').innerHTML = `
+<div class="hd"><h1>${u.name}</h1><p>포커스 1기 개인 참여도</p><a href="#" class="back" onclick="location.hash='';showDashboard();return false;">← 전체 대시보드</a></div>
+<div class="profile"><div class="rk">${rank<=3?medal(rank):'#'+rank}</div>
+<div class="nm">${u.name}</div><div class="sb">${total}명 중 ${rank}위 · 총 ${u.score}점</div><div class="uid">Discord ID: ${uid}</div></div>
+<div class="cards"><div class="cd"><div class="n">${ds}</div><div class="l">#데일리-체크</div></div>
+<div class="cd"><div class="n">${qs}</div><div class="l">#퀵챗</div></div>
+<div class="cd"><div class="n">${ids}</div><div class="l">#아이디어</div></div></div>
+<div class="sec"><div class="bx"><h2>채널별 활동 상세</h2><table>
+<tr><th>채널</th><th style="text-align:center">댓글</th><th style="text-align:center">포스팅</th><th style="text-align:center">투표</th><th style="text-align:center">리액션</th><th style="text-align:center">점수</th></tr>
+<tr><td>#데일리-체크</td><td style="text-align:center">${dc.messages||0}</td><td style="text-align:center">-</td><td style="text-align:center">${dc.votes||0}</td><td style="text-align:center">${dc.reactions||0}</td><td style="text-align:center;font-weight:700">${ds}</td></tr>
+<tr><td>#실무진-포커스-퀵챗</td><td style="text-align:center">${qc.messages||0}</td><td style="text-align:center">-</td><td style="text-align:center">${qc.votes||0}</td><td style="text-align:center">${qc.reactions||0}</td><td style="text-align:center;font-weight:700">${qs}</td></tr>
+<tr><td>#아이디어-제안</td><td style="text-align:center">${idea.messages||0}</td><td style="text-align:center">${idea.posts||0}</td><td style="text-align:center">${idea.votes||0}</td><td style="text-align:center">${idea.reactions||0}</td><td style="text-align:center;font-weight:700">${ids}</td></tr>
+<tr style="border-top:2px solid #111"><td style="font-weight:700">총합</td><td style="text-align:center;font-weight:700">${tmsg}</td><td style="text-align:center;font-weight:700">${tpost}</td><td style="text-align:center;font-weight:700">${tvote}</td><td style="text-align:center;font-weight:700">${treact}</td><td style="text-align:center;font-weight:700">${u.score}</td></tr>
+</table></div></div>
+<div class="sec"><div class="bx"><h2>본인 vs 전체 평균</h2><canvas id="ch"></canvas></div></div>
+<div class="ft">포커스 1기 참여도 대시보드</div>`;
+
+  new Chart(document.getElementById('ch').getContext('2d'),{type:'bar',data:{labels:['총점'],datasets:[
+    {label:u.name,data:[u.score],backgroundColor:'rgba(17,17,17,0.8)',borderRadius:6},
+    {label:'전체 평균',data:[avg],backgroundColor:'rgba(17,17,17,0.2)',borderRadius:6}]},
+    options:{responsive:true,plugins:{legend:{position:'top'}},scales:{x:{grid:{display:false}},y:{beginAtZero:true}}}});
+}
+
+function dcFilter(mode, el) {
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.dc-msg').forEach(e=>e.style.display=mode==='react'?'none':'');
+  document.querySelectorAll('.dc-react').forEach(e=>e.style.display=mode==='msg'?'none':'');
+}
+
+window.addEventListener('hashchange', () => {
+  if (!location.hash || location.hash === '#') showDashboard();
+  else if (location.hash.startsWith('#member/')) showMember(location.hash.replace('#member/',''));
+});
+
+load();
+setInterval(load, 60000);
+</script>
+</body>
+</html>
