@@ -46,12 +46,12 @@ a.nl:hover{text-decoration:underline}
 <body>
 <div id="app"><div class="loading">데이터를 불러오는 중...</div></div>
 <script>
-const API = '/api/data';
+const API = 'https://raw.githubusercontent.com/yejikim-yeji/%ED%8F%AC%EC%BB%A4%EC%8A%A4-1%EA%B8%B0-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C/main/data.json';
 let DATA = null;
 
 async function load() {
   try {
-    const r = await fetch(API);
+    const r = await fetch(API + '?t=' + Date.now());
     DATA = await r.json();
     if (location.hash && location.hash.startsWith('#member/')) {
       showMember(location.hash.replace('#member/',''));
@@ -59,7 +59,7 @@ async function load() {
       showDashboard();
     }
   } catch(e) {
-    document.getElementById('app').innerHTML = '<div class="loading">데이터를 불러올 수 없어요. 서버를 확인해주세요.</div>';
+    document.getElementById('app').innerHTML = '<div class="loading">데이터를 불러올 수 없어요. 봇이 데이터를 아직 업로드하지 않았을 수 있어요.</div>';
   }
 }
 
@@ -69,6 +69,7 @@ function showDashboard() {
   const m = DATA.members;
   const p = DATA.pct;
   const ideas = DATA.ideas || [];
+  const updated = DATA.updated || '';
 
   let rows = '';
   m.forEach((u,i) => {
@@ -93,7 +94,7 @@ function showDashboard() {
   });
 
   document.getElementById('app').innerHTML = `
-<div class="hd"><h1>포커스 1기 참여도 대시보드</h1><p>운영진/서부커 제외 패널 참여도</p></div>
+<div class="hd"><h1>포커스 1기 참여도 대시보드</h1><p>마지막 업데이트: ${updated} · 운영진/서부커 제외 패널 참여도</p></div>
 <div class="cards"><div class="cd"><div class="n">${p.monthly}%</div><div class="l">월 참여도</div></div>
 <div class="cd"><div class="n">${p.weekly}%</div><div class="l">주 참여도</div></div>
 <div class="cd"><div class="n">${p.daily}%</div><div class="l">일 참여도</div></div></div>
@@ -106,7 +107,7 @@ function showDashboard() {
 <span class="fbtn" onclick="dcFilter('react',this)">리액션만</span>
 </div>
 ${dcMembers.length===0?'<p class="empty">아직 데이터가 없어요</p>':'<table><tr><th style="text-align:center">순위</th><th>이름</th><th class="dc-msg" style="text-align:center">댓글</th><th class="dc-react" style="text-align:center">리액션</th><th style="text-align:center">합계</th></tr>'+dcRows+'</table>'}</div></div>
-<div class="ft">이름 클릭 → 개인 상세 · 60초 자동 새로고침</div>`;
+<div class="ft">이름 클릭 → 개인 상세 · 5분마다 데이터 갱신</div>`;
 }
 
 function showMember(uid) {
@@ -165,7 +166,7 @@ window.addEventListener('hashchange', () => {
 });
 
 load();
-setInterval(load, 60000);
+setInterval(load, 300000);
 </script>
 </body>
 </html>
