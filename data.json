@@ -571,7 +571,7 @@
           "posts": 0
         },
         "아이디어-제안": {
-          "messages": 0,
+          "messages": 1,
           "votes": 0,
           "reactions": 0,
           "posts": 0
@@ -1157,5 +1157,5 @@
     "weekly": 100,
     "monthly": 100
   },
-  "updated": "2026-04-13 19:17"
+  "updated": "2026-04-13 19:22"
 }
