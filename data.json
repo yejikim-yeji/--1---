@@ -444,12 +444,12 @@
     {
       "uid": "1485531447954509834",
       "name": "이하람",
-      "score": 5.4,
+      "score": 5.6,
       "channels": {
         "데일리-체크": {
           "messages": 13,
           "votes": 0,
-          "reactions": 4,
+          "reactions": 6,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1175,5 +1175,5 @@
     "weekly": 100,
     "monthly": 100
   },
-  "updated": "2026-04-14 16:02"
+  "updated": "2026-04-14 16:07"
 }
