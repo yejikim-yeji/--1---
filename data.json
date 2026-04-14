@@ -285,12 +285,12 @@
     {
       "uid": "1389474801541709926",
       "name": "김민주",
-      "score": 6.5,
+      "score": 6.6,
       "channels": {
         "데일리-체크": {
           "messages": 11,
           "votes": 0,
-          "reactions": 45,
+          "reactions": 46,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1178,5 +1178,5 @@
     "weekly": 100,
     "monthly": 100
   },
-  "updated": "2026-04-14 17:37"
+  "updated": "2026-04-14 17:42"
 }
