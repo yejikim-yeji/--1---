@@ -325,12 +325,12 @@
     {
       "uid": "823417522786402305",
       "name": "한가은",
-      "score": 6.2,
+      "score": 6.3,
       "channels": {
         "데일리-체크": {
-          "messages": 12,
+          "messages": 13,
           "votes": 0,
-          "reactions": 12,
+          "reactions": 13,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -342,7 +342,7 @@
         "아이디어-제안": {
           "messages": 2,
           "votes": 0,
-          "reactions": 2,
+          "reactions": 4,
           "posts": 1
         }
       },
@@ -918,12 +918,12 @@
     {
       "uid": "1485662490485325954",
       "name": "신은아",
-      "score": 1.0,
+      "score": 1.1,
       "channels": {
         "데일리-체크": {
-          "messages": 8,
+          "messages": 9,
           "votes": 0,
-          "reactions": 10,
+          "reactions": 11,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1181,5 +1181,5 @@
     "weekly": 100,
     "monthly": 100
   },
-  "updated": "2026-04-14 22:52"
+  "updated": "2026-04-14 22:57"
 }
