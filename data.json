@@ -974,7 +974,7 @@
       "score": 1.1,
       "channels": {
         "데일리-체크": {
-          "messages": 11,
+          "messages": 12,
           "votes": 0,
           "reactions": 1,
           "posts": 0
@@ -1197,5 +1197,5 @@
     "weekly": 100,
     "monthly": 100
   },
-  "updated": "2026-04-15 23:22"
+  "updated": "2026-04-15 23:27"
 }
