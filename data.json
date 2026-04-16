@@ -380,7 +380,7 @@
       "score": 6.2,
       "channels": {
         "데일리-체크": {
-          "messages": 13,
+          "messages": 15,
           "votes": 0,
           "reactions": 62,
           "posts": 0
@@ -1219,5 +1219,5 @@
     "weekly": 93,
     "monthly": 100
   },
-  "updated": "2026-04-17 05:32"
+  "updated": "2026-04-17 05:37"
 }
