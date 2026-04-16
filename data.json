@@ -217,12 +217,12 @@
     {
       "uid": "1485530747816247490",
       "name": "안소영",
-      "score": 8.4,
+      "score": 8.5,
       "channels": {
         "데일리-체크": {
           "messages": 13,
           "votes": 0,
-          "reactions": 84,
+          "reactions": 85,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1209,5 +1209,5 @@
     "weekly": 93,
     "monthly": 100
   },
-  "updated": "2026-04-16 14:57"
+  "updated": "2026-04-16 15:02"
 }
