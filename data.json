@@ -959,12 +959,12 @@
     {
       "uid": "984814652481499167",
       "name": "박진영",
-      "score": 1.3,
+      "score": 1.5,
       "channels": {
         "데일리-체크": {
-          "messages": 12,
+          "messages": 13,
           "votes": 0,
-          "reactions": 3,
+          "reactions": 5,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1230,5 +1230,5 @@
     "weekly": 93,
     "monthly": 100
   },
-  "updated": "2026-04-18 10:17"
+  "updated": "2026-04-18 10:22"
 }
