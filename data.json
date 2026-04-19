@@ -425,12 +425,12 @@
     {
       "uid": "1343562887461081132",
       "name": "최예린",
-      "score": 6.0,
+      "score": 6.1,
       "channels": {
         "데일리-체크": {
           "messages": 12,
           "votes": 0,
-          "reactions": 30,
+          "reactions": 31,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1237,5 +1237,5 @@
     "weekly": 97,
     "monthly": 100
   },
-  "updated": "2026-04-20 05:17"
+  "updated": "2026-04-20 05:22"
 }
