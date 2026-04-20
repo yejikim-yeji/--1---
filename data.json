@@ -91,12 +91,12 @@
     {
       "uid": "788015080209121282",
       "name": "김수림",
-      "score": 14.8,
+      "score": 14.9,
       "channels": {
         "데일리-체크": {
           "messages": 16,
           "votes": 0,
-          "reactions": 148,
+          "reactions": 149,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1247,5 +1247,5 @@
     "weekly": 97,
     "monthly": 100
   },
-  "updated": "2026-04-20 17:52"
+  "updated": "2026-04-20 17:57"
 }
