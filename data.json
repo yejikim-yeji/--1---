@@ -466,12 +466,12 @@
     {
       "uid": "1485528237068128297",
       "name": "정지우",
-      "score": 6.0,
+      "score": 6.1,
       "channels": {
         "데일리-체크": {
           "messages": 15,
           "votes": 0,
-          "reactions": 10,
+          "reactions": 11,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1244,5 +1244,5 @@
     "weekly": 97,
     "monthly": 100
   },
-  "updated": "2026-04-20 14:57"
+  "updated": "2026-04-20 15:02"
 }
