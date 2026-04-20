@@ -597,12 +597,12 @@
     {
       "uid": "1289078660887744588",
       "name": "옥채은",
-      "score": 5.0,
+      "score": 5.1,
       "channels": {
         "데일리-체크": {
-          "messages": 14,
+          "messages": 15,
           "votes": 0,
-          "reactions": 40,
+          "reactions": 41,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1249,5 +1249,5 @@
     "weekly": 97,
     "monthly": 100
   },
-  "updated": "2026-04-20 19:17"
+  "updated": "2026-04-20 19:22"
 }
