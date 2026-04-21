@@ -852,12 +852,12 @@
     {
       "uid": "1485678540568657991",
       "name": "김아현",
-      "score": 2.9,
+      "score": 3.2,
       "channels": {
         "데일리-체크": {
           "messages": 16,
           "votes": 0,
-          "reactions": 29,
+          "reactions": 32,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1259,5 +1259,5 @@
     "weekly": 93,
     "monthly": 100
   },
-  "updated": "2026-04-21 21:12"
+  "updated": "2026-04-21 21:17"
 }
