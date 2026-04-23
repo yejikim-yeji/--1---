@@ -186,12 +186,12 @@
     {
       "uid": "1485529500048556142",
       "name": "이나은",
-      "score": 9.3,
+      "score": 9.4,
       "channels": {
         "데일리-체크": {
           "messages": 17,
           "votes": 0,
-          "reactions": 43,
+          "reactions": 44,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1286,5 +1286,5 @@
     "weekly": 97,
     "monthly": 100
   },
-  "updated": "2026-04-23 15:12"
+  "updated": "2026-04-23 15:17"
 }
