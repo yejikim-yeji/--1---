@@ -798,12 +798,12 @@
     {
       "uid": "739762607912648715",
       "name": "장하진",
-      "score": 3.6,
+      "score": 3.7,
       "channels": {
         "데일리-체크": {
-          "messages": 14,
+          "messages": 15,
           "votes": 0,
-          "reactions": 36,
+          "reactions": 37,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1304,5 +1304,5 @@
     "weekly": 97,
     "monthly": 100
   },
-  "updated": "2026-04-24 14:17"
+  "updated": "2026-04-24 14:22"
 }
