@@ -762,12 +762,12 @@
     {
       "uid": "1485662490485325954",
       "name": "신은아",
-      "score": 4.7,
+      "score": 4.8,
       "channels": {
         "데일리-체크": {
-          "messages": 14,
+          "messages": 15,
           "votes": 0,
-          "reactions": 17,
+          "reactions": 18,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1314,5 +1314,5 @@
     "weekly": 93,
     "monthly": 100
   },
-  "updated": "2026-04-27 10:17"
+  "updated": "2026-04-27 10:22"
 }
