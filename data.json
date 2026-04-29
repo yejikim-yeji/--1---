@@ -737,12 +737,12 @@
     {
       "uid": "1478181502087860268",
       "name": "이지은",
-      "score": 5.1,
+      "score": 5.3,
       "channels": {
         "데일리-체크": {
           "messages": 18,
           "votes": 0,
-          "reactions": 51,
+          "reactions": 53,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1346,5 +1346,5 @@
     "weekly": 93,
     "monthly": 100
   },
-  "updated": "2026-04-29 09:47"
+  "updated": "2026-04-29 09:52"
 }
