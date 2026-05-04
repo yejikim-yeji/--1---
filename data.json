@@ -3,12 +3,12 @@
     {
       "uid": "1410638379619586201",
       "name": "신지은",
-      "score": 43.8,
+      "score": 43.9,
       "channels": {
         "데일리-체크": {
-          "messages": 15,
+          "messages": 16,
           "votes": 0,
-          "reactions": 438,
+          "reactions": 439,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1374,5 +1374,5 @@
     "weekly": 90,
     "monthly": 28
   },
-  "updated": "2026-05-04 13:47"
+  "updated": "2026-05-04 13:52"
 }
