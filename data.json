@@ -52,12 +52,12 @@
     {
       "uid": "1355549567998890056",
       "name": "설지희",
-      "score": 29.0,
+      "score": 29.1,
       "channels": {
         "데일리-체크": {
           "messages": 25,
           "votes": 0,
-          "reactions": 270,
+          "reactions": 271,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1406,5 +1406,5 @@
     "weekly": 90,
     "monthly": 90
   },
-  "updated": "2026-05-07 19:22"
+  "updated": "2026-05-07 19:27"
 }
