@@ -1325,12 +1325,12 @@
     {
       "uid": "1485606307515072615",
       "name": "정서윤",
-      "score": 1.0,
+      "score": 1.1,
       "channels": {
         "데일리-체크": {
           "messages": 18,
           "votes": 0,
-          "reactions": 10,
+          "reactions": 11,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1402,5 +1402,5 @@
     "weekly": 83,
     "monthly": 83
   },
-  "updated": "2026-05-07 11:02"
+  "updated": "2026-05-07 11:07"
 }
