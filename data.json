@@ -916,12 +916,12 @@
     {
       "uid": "1485529942040121356",
       "name": "나윤영",
-      "score": 4.2,
+      "score": 4.3,
       "channels": {
         "데일리-체크": {
           "messages": 21,
           "votes": 0,
-          "reactions": 42,
+          "reactions": 43,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1419,5 +1419,5 @@
     "weekly": 93,
     "monthly": 93
   },
-  "updated": "2026-05-09 00:52"
+  "updated": "2026-05-09 00:57"
 }
