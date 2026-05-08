@@ -500,12 +500,12 @@
     {
       "uid": "823417522786402305",
       "name": "한가은",
-      "score": 7.7,
+      "score": 7.8,
       "channels": {
         "데일리-체크": {
-          "messages": 21,
+          "messages": 22,
           "votes": 0,
-          "reactions": 27,
+          "reactions": 28,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1418,5 +1418,5 @@
     "weekly": 93,
     "monthly": 93
   },
-  "updated": "2026-05-08 21:42"
+  "updated": "2026-05-08 21:47"
 }
