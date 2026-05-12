@@ -377,12 +377,12 @@
     {
       "uid": "1270925023863115881",
       "name": "박유진",
-      "score": 8.9,
+      "score": 9.0,
       "channels": {
         "데일리-체크": {
-          "messages": 30,
+          "messages": 31,
           "votes": 0,
-          "reactions": 79,
+          "reactions": 80,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1463,5 +1463,5 @@
     "weekly": 86,
     "monthly": 93
   },
-  "updated": "2026-05-13 04:52"
+  "updated": "2026-05-13 04:57"
 }
