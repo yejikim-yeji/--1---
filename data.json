@@ -1553,9 +1553,9 @@
     }
   ],
   "pct": {
-    "daily": 3,
-    "weekly": 24,
+    "daily": 0,
+    "weekly": 10,
     "monthly": 45
   },
-  "updated": "2026-06-14 23:52"
+  "updated": "2026-06-15 01:00"
 }
