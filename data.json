@@ -418,7 +418,7 @@
       "score": 10.1,
       "channels": {
         "데일리-체크": {
-          "messages": 21,
+          "messages": 22,
           "votes": 0,
           "reactions": 71,
           "posts": 0
@@ -461,7 +461,8 @@
         "2026-05-11",
         "2026-05-13",
         "2026-05-18",
-        "2026-05-26"
+        "2026-05-26",
+        "2026-06-15"
       ]
     },
     {
@@ -1379,7 +1380,7 @@
       "score": 2.3,
       "channels": {
         "데일리-체크": {
-          "messages": 24,
+          "messages": 26,
           "votes": 0,
           "reactions": 13,
           "posts": 0
@@ -1558,9 +1559,9 @@
     }
   ],
   "pct": {
-    "daily": 17,
-    "weekly": 24,
-    "monthly": 52
+    "daily": 21,
+    "weekly": 28,
+    "monthly": 55
   },
-  "updated": "2026-06-15 18:27"
+  "updated": "2026-06-15 18:32"
 }
