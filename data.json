@@ -1198,12 +1198,12 @@
     {
       "uid": "1274702005671301144",
       "name": "김윤서",
-      "score": 4.2,
+      "score": 4.3,
       "channels": {
         "데일리-체크": {
           "messages": 22,
           "votes": 0,
-          "reactions": 22,
+          "reactions": 23,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1590,5 +1590,5 @@
     "weekly": 59,
     "monthly": 86
   },
-  "updated": "2026-06-23 18:27"
+  "updated": "2026-06-23 18:32"
 }
