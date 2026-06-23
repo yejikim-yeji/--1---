@@ -533,12 +533,12 @@
     {
       "uid": "1485543466586079333",
       "name": "정다원",
-      "score": 9.0,
+      "score": 9.1,
       "channels": {
         "데일리-체크": {
           "messages": 21,
           "votes": 0,
-          "reactions": 70,
+          "reactions": 71,
           "posts": 0
         },
         "실무진-포커스-퀵챗": {
@@ -1584,5 +1584,5 @@
     "weekly": 38,
     "monthly": 83
   },
-  "updated": "2026-06-23 10:02"
+  "updated": "2026-06-23 10:07"
 }
