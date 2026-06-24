@@ -203,7 +203,7 @@
         "아이디어-제안": {
           "messages": 2,
           "votes": 0,
-          "reactions": 1,
+          "reactions": 3,
           "posts": 2
         }
       },
@@ -1597,5 +1597,5 @@
     "weekly": 72,
     "monthly": 90
   },
-  "updated": "2026-06-24 16:57"
+  "updated": "2026-06-24 17:02"
 }
